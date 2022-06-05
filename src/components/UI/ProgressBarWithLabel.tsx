@@ -1,0 +1,57 @@
+import {
+  Grid,
+  LinearProgress,
+  LinearProgressProps,
+  Typography,
+} from "@mui/material";
+import { useEffect, useState } from "react";
+
+export interface IProgressBarWithLabel extends LinearProgressProps {
+  label: String;
+  value: number;
+}
+
+export const ProgressBarWithLabel = ({
+  label,
+  value,
+  ...rest
+}: IProgressBarWithLabel) => {
+  const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (counter < value * 100) setCounter((prev) => prev + 2);
+    }, 10);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  });
+
+  return (
+    <Grid container spacing={0} sx={{ py: 1 }}>
+      <Grid item xs={6} sx={{ textAlign: "left" }}>
+        <Typography variant="caption">{label}</Typography>
+      </Grid>
+      <Grid item xs={6} sx={{ textAlign: "right" }}>
+        <Typography variant="caption">{`${Math.floor(
+          value * 100
+        )}%`}</Typography>
+      </Grid>
+      <Grid item xs={12}>
+        <LinearProgress
+          sx={{
+            backgroundColor: "transparent",
+            "& .MuiLinearProgress-barColorPrimary": {
+              backgroundColor: "magenta",
+            },
+          }}
+          variant="determinate"
+          color="primary"
+          value={counter}
+          {...rest}
+        />
+      </Grid>
+    </Grid>
+  );
+};
