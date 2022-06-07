@@ -1,5 +1,6 @@
 import { Grid, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ColorContext } from "../../theme/Color";
 
 export type TAchievement = {
   achievement: number;
@@ -33,6 +34,7 @@ export interface IAchievement {
 }
 
 export const Achievement = ({ achievement }: IAchievement) => {
+  const color = useContext(ColorContext);
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
@@ -59,7 +61,7 @@ export const Achievement = ({ achievement }: IAchievement) => {
     >
       <Typography
         sx={{
-          color: "magenta",
+          color: `${color}`,
           fontSize: "1.45rem",
           fontWeight: "800",
           marginRight: "1rem",

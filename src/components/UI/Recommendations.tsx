@@ -11,7 +11,8 @@ import {
   Typography,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useContext, useEffect, useState } from "react";
+import { ColorContext } from "../../theme/Color";
 
 export type TRecommendation = {
   name: String;
@@ -80,6 +81,7 @@ export const Recommendation = ({ recommendation, dialog }: IRecommendation) => {
   const MAX_CHARACTERS = 70;
   const [opacity, setOpacity] = useState(0);
   const [open, setOpen] = useState(false);
+  const color = useContext(ColorContext);
 
   const handleOpen = () => {
     setOpen(true);
@@ -98,10 +100,6 @@ export const Recommendation = ({ recommendation, dialog }: IRecommendation) => {
       clearTimeout(timer);
     };
   });
-
-  useEffect(() => {
-    console.log(open);
-  }, [open]);
 
   return (
     <>
@@ -173,7 +171,7 @@ export const Recommendation = ({ recommendation, dialog }: IRecommendation) => {
                   <Button
                     variant="contained"
                     onClick={handleOpen}
-                    sx={{ backgroundColor: "magenta", color: "white" }}
+                    sx={{ backgroundColor: `${color}`, color: "white" }}
                   >
                     Read More
                   </Button>
@@ -195,7 +193,7 @@ export const Recommendation = ({ recommendation, dialog }: IRecommendation) => {
                   name="read-only"
                   value={recommendation.review}
                   readOnly
-                  sx={{ color: "magenta" }}
+                  sx={{ color: `${color}` }}
                 />
               </Box>
             </Box>

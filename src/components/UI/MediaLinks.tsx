@@ -1,4 +1,6 @@
 import { Box, Link } from "@mui/material";
+import { useContext } from "react";
+import { ColorContext } from "../../theme/Color";
 import { TMediaLink } from "../../types";
 
 export interface IMediaLinks {
@@ -6,6 +8,7 @@ export interface IMediaLinks {
 }
 
 export const MediaLinks = ({ mediaLinks }: IMediaLinks) => {
+  const color = useContext(ColorContext);
   return (
     <Box
       sx={{
@@ -21,7 +24,7 @@ export const MediaLinks = ({ mediaLinks }: IMediaLinks) => {
           target="_blank"
           rel="noopener"
           href={`${m.link}`}
-          sx={{ color: "magenta" }}
+          sx={{ color: `${color}` }}
         >
           {m.icon}
         </Link>

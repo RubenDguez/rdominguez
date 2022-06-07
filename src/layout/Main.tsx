@@ -12,7 +12,7 @@ import {
   personalInformationData,
 } from "../constants/personalInformation";
 import { spokenLanguages } from "../constants/spokenLanguages";
-import { skillsWithPercentages, skills } from "../constants/skills";
+import { backEndSkills, frontEndSkills, skills } from "../constants/skills";
 import { mediaLinks } from "../constants/mediaLinks";
 
 import { mainPhrase, codingPhrases } from "../constants/codingPhrases";
@@ -30,7 +30,8 @@ export const Main = () => {
           bio={bio}
           personalInformationData={personalInformationData}
           spokenLanguages={spokenLanguages}
-          skillsWithPercentages={skillsWithPercentages}
+          frontEndSkills={frontEndSkills}
+          backEndSkills={backEndSkills}
           skills={skills}
           mediaLinks={mediaLinks}
           image={person}

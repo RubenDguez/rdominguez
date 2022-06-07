@@ -4,7 +4,8 @@ import {
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ColorContext } from "../../theme/Color";
 
 export interface ICircularProgressBarWithLabel extends CircularProgressProps {
   value: number;
@@ -14,6 +15,7 @@ export const CircularProgressBarWithLabel = ({
   value,
   ...rest
 }: ICircularProgressBarWithLabel) => {
+  const color = useContext(ColorContext);
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
@@ -28,7 +30,7 @@ export const CircularProgressBarWithLabel = ({
   return (
     <Box sx={{ position: "relative", display: "inline-flex" }}>
       <CircularProgress
-        sx={{ color: "magenta" }}
+        sx={{ color: `${color}` }}
         size={50}
         variant="determinate"
         value={counter}

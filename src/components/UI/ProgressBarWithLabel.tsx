@@ -4,7 +4,8 @@ import {
   LinearProgressProps,
   Typography,
 } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ColorContext } from "../../theme/Color";
 
 export interface IProgressBarWithLabel extends LinearProgressProps {
   label: String;
@@ -17,6 +18,7 @@ export const ProgressBarWithLabel = ({
   ...rest
 }: IProgressBarWithLabel) => {
   const [counter, setCounter] = useState(0);
+  const color = useContext(ColorContext);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -43,7 +45,7 @@ export const ProgressBarWithLabel = ({
           sx={{
             backgroundColor: "transparent",
             "& .MuiLinearProgress-barColorPrimary": {
-              backgroundColor: "magenta",
+              backgroundColor: `${color}`,
             },
           }}
           variant="determinate"

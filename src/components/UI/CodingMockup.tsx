@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ColorContext } from "../../theme/Color";
 
 export interface ICodingMockup {
   codingPhrases: String[];
@@ -10,6 +11,7 @@ export const CodingMockup = ({ codingPhrases }: ICodingMockup) => {
   const [phrase, setPhrase] = useState("");
   const [substring, setSubstring] = useState(7);
   const [opacity, setOpacity] = useState(1);
+  const color = useContext(ColorContext);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -52,7 +54,7 @@ export const CodingMockup = ({ codingPhrases }: ICodingMockup) => {
   return (
     <Box sx={{ fontFamily: "monospace" }}>
       <span>&#60;</span>
-      <span style={{ color: "magenta" }}>
+      <span style={{ color: `${color}` }}>
         <i>code</i>
       </span>
       <span>&#62;</span>
@@ -81,7 +83,7 @@ export const CodingMockup = ({ codingPhrases }: ICodingMockup) => {
         </span>
       </div>
       <span>&#60;/</span>
-      <span style={{ color: "magenta" }}>
+      <span style={{ color: `${color}` }}>
         <i>code</i>
       </span>
       <span>&#62;</span>

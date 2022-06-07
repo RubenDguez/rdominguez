@@ -15,7 +15,6 @@ import {
   TSkill,
   TSpokenLanguage,
 } from "../../types";
-
 import { MediaLinks } from "./MediaLinks";
 import { PersonalInf } from "./PersonalInformation";
 import { Skills } from "./Skills";
@@ -28,7 +27,8 @@ export interface ILeftPanel {
   bio: String;
   personalInformationData: TPersonalInformation[];
   spokenLanguages: TSpokenLanguage[];
-  skillsWithPercentages: TSkill[];
+  frontEndSkills: TSkill[];
+  backEndSkills: TSkill[];
   skills: TSkill[];
   mediaLinks: TMediaLink[];
   image: TImage;
@@ -40,7 +40,8 @@ export const LeftPanel = ({
   bio,
   personalInformationData,
   spokenLanguages,
-  skillsWithPercentages,
+  frontEndSkills,
+  backEndSkills,
   skills,
   mediaLinks,
   image,
@@ -97,12 +98,37 @@ export const LeftPanel = ({
         </Container>
         {/* end spoken languages */}
 
-        {/* begin skills */}
+        {/* begin front end skills */}
         <Divider />
+        <Box
+          sx={{
+            textAlign: "center",
+            marginTop: "1rem",
+            textTransform: "uppercase",
+          }}
+        >
+          <Typography variant="caption">Front End Skills</Typography>
+        </Box>
         <Container sx={{ my: 2 }}>
-          <SkillsWithProgressBar skills={skillsWithPercentages} />
+          <SkillsWithProgressBar skills={frontEndSkills} />
         </Container>
-        {/* end skills */}
+        {/* end front end skills */}
+
+        {/* begin back end skills */}
+        <Divider />
+        <Box
+          sx={{
+            textAlign: "center",
+            marginTop: "1rem",
+            textTransform: "uppercase",
+          }}
+        >
+          <Typography variant="caption">Back End Skills</Typography>
+        </Box>
+        <Container sx={{ my: 2 }}>
+          <SkillsWithProgressBar skills={backEndSkills} />
+        </Container>
+        {/* end back end skills */}
 
         {/* begin other skills */}
         <Divider />
