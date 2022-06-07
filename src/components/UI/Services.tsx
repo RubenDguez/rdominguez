@@ -1,5 +1,12 @@
 import { styled } from "@mui/material/styles";
-import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  Divider,
+  Grid,
+  Typography,
+} from "@mui/material";
 import { useEffect, useState } from "react";
 
 export type TService = {
@@ -98,6 +105,7 @@ export const Service = ({ service }: IService) => {
         <Typography gutterBottom variant="h5" component="div">
           {service.title}
         </Typography>
+        <Divider />
         <Typography
           sx={{ marginTop: "1.8rem" }}
           variant="body2"
