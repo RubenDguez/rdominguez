@@ -4,16 +4,11 @@ export const services: TService[] = [
   {
     title: "Web Development",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos alias reprehenderit qui asperiores, repellendus inventore vero praesentium distinctio ducimus culpa voluptatibus explicabo libero accusamus sapiente.",
+      "Develop and instruct feature-rich client websites. Ensure that all needs are met and policies and procedures are followed",
   },
   {
     title: "UI/UX Design",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos alias reprehenderit qui asperiores, repellendus inventore vero praesentium distinctio ducimus culpa voluptatibus explicabo libero accusamus sapiente.",
-  },
-  {
-    title: "Sound Design",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos alias reprehenderit qui asperiores, repellendus inventore vero praesentium distinctio ducimus culpa voluptatibus explicabo libero accusamus sapiente.",
+      "Over five years of experience as a front-end user designer, creating interactive and animated user experience",
   },
 ];

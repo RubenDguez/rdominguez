@@ -14,6 +14,18 @@ export interface IServices {
 export const Services = ({ services }: IServices) => {
   const [serv, setServ] = useState<TService[]>([]);
 
+  const [opacity, setOpacity] = useState(0);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setOpacity(1);
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  });
+
   useEffect(() => {
     const timer = setTimeout(() => {
       if (serv.length < services.length) {
@@ -33,13 +45,24 @@ export const Services = ({ services }: IServices) => {
           <Box sx={{ marginBottom: "2rem" }}>
             <SXBox>
               <Typography variant="h5" sx={{ fontWeight: 600 }}>
-                My Services
+                What I Do
               </Typography>
             </SXBox>
           </Box>
-          <Grid container spacing={3}>
+          <Grid
+            container
+            spacing={3}
+            sx={{ opacity: `${opacity}`, transition: "ease-in 1250ms" }}
+          >
             {serv.map((m, i) => (
-              <Service key={i} service={m} />
+              <Grid
+                item
+                xs={12}
+                sm={serv.length > 1 ? 6 : 12}
+                lg={serv.length > 2 ? 4 : serv.length > 1 ? 6 : 12}
+              >
+                <Service key={i} service={m} />
+              </Grid>
             ))}
           </Grid>
         </Box>
@@ -62,45 +85,27 @@ export interface IService {
 }
 
 export const Service = ({ service }: IService) => {
-  const [opacity, setOpacity] = useState(0);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setOpacity(1);
-    }, 100);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  });
-
   return (
-    <Grid
-      item
-      xs={12}
-      sm={6}
-      lg={4}
-      xl={3}
-      sx={{ opacity: `${opacity}`, transition: "ease-in 250ms" }}
+    <Card
+      sx={{
+        padding: "1.8rem 0.75rem",
+        minHeight: "250px",
+        maxHeight: "250px",
+        height: "250px",
+      }}
     >
-      <Card
-        sx={{
-          padding: "1.8rem 0.75rem",
-        }}
-      >
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {service.title}
-          </Typography>
-          <Typography
-            sx={{ marginTop: "1.8rem" }}
-            variant="body2"
-            color="text.secondary"
-          >
-            {service.description}
-          </Typography>
-        </CardContent>
-      </Card>
-    </Grid>
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {service.title}
+        </Typography>
+        <Typography
+          sx={{ marginTop: "1.8rem" }}
+          variant="body2"
+          color="text.secondary"
+        >
+          {service.description}
+        </Typography>
+      </CardContent>
+    </Card>
   );
 };

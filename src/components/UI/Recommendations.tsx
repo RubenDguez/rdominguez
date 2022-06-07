@@ -28,6 +28,17 @@ export interface IRecommendations {
 
 export const Recommendations = ({ recommendations }: IRecommendations) => {
   const [recommend, setRecommend] = useState<TRecommendation[]>([]);
+  const [opacity, setOpacity] = useState(0);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setOpacity(1);
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  });
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -52,9 +63,26 @@ export const Recommendations = ({ recommendations }: IRecommendations) => {
               </Typography>
             </SXBox>
           </Box>
-          <Grid container spacing={3}>
+          <Grid
+            container
+            spacing={3}
+            sx={{ opacity: `${opacity}`, transition: "ease-in 1250ms" }}
+          >
             {recommend.map((m, i) => (
-              <Recommendation key={i} recommendation={m} />
+              <Grid
+                item
+                xs={12}
+                sm={recommendations.length > 1 ? 6 : 12}
+                lg={
+                  recommendations.length > 2
+                    ? 4
+                    : recommendations.length > 1
+                    ? 6
+                    : 12
+                }
+              >
+                <Recommendation key={i} recommendation={m} />
+              </Grid>
             ))}
           </Grid>
         </Box>
@@ -79,7 +107,6 @@ export interface IRecommendation {
 
 export const Recommendation = ({ recommendation, dialog }: IRecommendation) => {
   const MAX_CHARACTERS = 70;
-  const [opacity, setOpacity] = useState(0);
   const [open, setOpen] = useState(false);
   const color = useContext(ColorContext);
 
@@ -91,16 +118,6 @@ export const Recommendation = ({ recommendation, dialog }: IRecommendation) => {
     setOpen(false);
   };
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setOpacity(1);
-    }, 100);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  });
-
   return (
     <>
       <RecommendationDialog
@@ -108,98 +125,90 @@ export const Recommendation = ({ recommendation, dialog }: IRecommendation) => {
         open={open}
         close={handleClose}
       />
-      <Grid
-        item
-        xs={12}
-        sm={dialog ? 12 : 6}
-        md={dialog ? 12 : 4}
-        sx={{ opacity: `${opacity}`, transition: "ease-in 250ms" }}
+      <Card
+        sx={{
+          overflow: "visible",
+          padding: "1rem 1rem",
+        }}
       >
-        <Card
+        <CardMedia
+          component="img"
+          src={`${recommendation.imageSrc}`}
+          alt={`${recommendation.name}`}
           sx={{
-            overflow: "visible",
-            padding: "1rem 1rem",
+            marginLeft: "auto",
+            borderRadius: "50%",
+            width: 120,
+            height: 120,
+            zIndex: 10,
           }}
-        >
-          <CardMedia
-            component="img"
-            src={`${recommendation.imageSrc}`}
-            alt={`${recommendation.name}`}
+        />
+        <CardContent sx={{ position: "relative" }}>
+          <Box
             sx={{
-              marginLeft: "auto",
-              borderRadius: "50%",
-              width: 120,
-              height: 120,
-              zIndex: 10,
+              position: "relative",
+              minHeight: "250px",
+              width: "100%",
             }}
-          />
-          <CardContent sx={{ position: "relative" }}>
-            <Box
-              sx={{
-                position: "relative",
-                minHeight: "250px",
-                width: "100%",
-              }}
-            >
-              <Box>
-                <Typography variant="h5">{recommendation.name}</Typography>
-                <Typography sx={{ fontSize: "0.8rem", color: "lightgray" }}>
-                  <i>{recommendation.title}</i>
-                </Typography>
-                <Divider sx={{ marginTop: "0.5rem" }} />
-                <Typography
-                  variant="body2"
-                  sx={{
-                    color: "lightgray",
-                    marginTop: `${dialog ? "0.5rem" : "2rem"}`,
-                    maxHeight: "130px",
-                    overflowY: "scroll",
-                  }}
-                >
-                  {dialog
-                    ? recommendation.comment
-                    : recommendation.comment.substring(0, MAX_CHARACTERS)}
-                  {dialog
-                    ? ""
-                    : recommendation.comment.length > MAX_CHARACTERS && (
-                        <span>...</span>
-                      )}
-                </Typography>
-              </Box>
-              {recommendation.comment.length > MAX_CHARACTERS && !dialog && (
-                <Box sx={{ marginTop: "1rem" }}>
-                  <Button
-                    variant="contained"
-                    onClick={handleOpen}
-                    sx={{ backgroundColor: `${color}`, color: "white" }}
-                  >
-                    Read More
-                  </Button>
-                </Box>
-              )}
-
-              <Box
+          >
+            <Box>
+              <Typography variant="h5">{recommendation.name}</Typography>
+              <Typography sx={{ fontSize: "0.8rem", color: "lightgray" }}>
+                <i>{recommendation.title}</i>
+              </Typography>
+              <Divider sx={{ marginTop: "0.5rem" }} />
+              <Typography
+                variant="body2"
                 sx={{
-                  marginTop: "2rem",
-                  padding: "8px 16px 4px 16px",
-                  backgroundColor: "rgba(0,0,0,0.3)",
-                  borderRadius: "32px",
-                  position: "absolute",
-                  bottom: 0,
-                  left: -4,
+                  color: "lightgray",
+                  marginTop: `${dialog ? "0.5rem" : "2rem"}`,
+                  maxHeight: "130px",
+                  overflowY: "scroll",
                 }}
               >
-                <Rating
-                  name="read-only"
-                  value={recommendation.review}
-                  readOnly
-                  sx={{ color: `${color}` }}
-                />
-              </Box>
+                {dialog
+                  ? recommendation.comment
+                  : recommendation.comment.substring(0, MAX_CHARACTERS)}
+                {dialog
+                  ? ""
+                  : recommendation.comment.length > MAX_CHARACTERS && (
+                      <span>...</span>
+                    )}
+              </Typography>
             </Box>
-          </CardContent>
-        </Card>
-      </Grid>
+            {recommendation.comment.length > MAX_CHARACTERS && !dialog && (
+              <Box sx={{ marginTop: "1rem" }}>
+                <Button
+                  variant="contained"
+                  onClick={handleOpen}
+                  sx={{ backgroundColor: `${color}`, color: "white" }}
+                >
+                  Read More
+                </Button>
+              </Box>
+            )}
+
+            <Box
+              sx={{
+                marginTop: "2rem",
+                padding: "8px 16px 4px 16px",
+                backgroundColor: "rgba(0,0,0,0.3)",
+                borderRadius: "32px",
+                position: "absolute",
+                bottom: 0,
+                left: -4,
+              }}
+            >
+              <Rating
+                name="read-only"
+                value={recommendation.review}
+                readOnly
+                sx={{ color: `${color}` }}
+              />
+            </Box>
+          </Box>
+        </CardContent>
+      </Card>
     </>
   );
 };
