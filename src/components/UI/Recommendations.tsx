@@ -9,10 +9,10 @@ import {
   Grid,
   Rating,
   Typography,
-} from "@mui/material";
-import { styled } from "@mui/material/styles";
-import { ReactNode, useContext, useEffect, useState } from "react";
-import { ColorContext } from "../../theme/Color";
+} from '@mui/material';
+import { styled } from '@mui/material/styles';
+import { ReactNode, useContext, useEffect, useState } from 'react';
+import { ColorContext } from '../../theme/Color';
 
 export type TRecommendation = {
   name: String;
@@ -56,9 +56,9 @@ export const Recommendations = ({ recommendations }: IRecommendations) => {
     <>
       {recommend && (
         <Box>
-          <Box sx={{ marginBottom: "2rem" }}>
+          <Box sx={{ marginBottom: '2rem' }}>
             <SXBox>
-              <Typography variant="h5" sx={{ fontWeight: 600 }}>
+              <Typography variant='h5' sx={{ fontWeight: 600 }}>
                 Recommendations
               </Typography>
             </SXBox>
@@ -66,10 +66,11 @@ export const Recommendations = ({ recommendations }: IRecommendations) => {
           <Grid
             container
             spacing={3}
-            sx={{ opacity: `${opacity}`, transition: "ease-in 1250ms" }}
+            sx={{ opacity: `${opacity}`, transition: 'ease-in 1250ms' }}
           >
             {recommend.map((m, i) => (
               <Grid
+                key={i}
                 item
                 xs={12}
                 sm={recommendations.length > 1 ? 6 : 12}
@@ -81,7 +82,7 @@ export const Recommendations = ({ recommendations }: IRecommendations) => {
                     : 12
                 }
               >
-                <Recommendation key={i} recommendation={m} />
+                <Recommendation recommendation={m} />
               </Grid>
             ))}
           </Grid>
@@ -92,11 +93,11 @@ export const Recommendations = ({ recommendations }: IRecommendations) => {
 };
 
 const SXBox = styled(Box)(({ theme }) => ({
-  [theme.breakpoints.down("sm")]: {
-    textAlign: "center",
+  [theme.breakpoints.down('sm')]: {
+    textAlign: 'center',
   },
-  [theme.breakpoints.up("sm")]: {
-    textAlign: "left",
+  [theme.breakpoints.up('sm')]: {
+    textAlign: 'left',
   },
 }));
 
@@ -127,61 +128,61 @@ export const Recommendation = ({ recommendation, dialog }: IRecommendation) => {
       />
       <Card
         sx={{
-          overflow: "visible",
-          padding: "1rem 1rem",
+          overflow: 'visible',
+          padding: '1rem 1rem',
         }}
       >
         <CardMedia
-          component="img"
+          component='img'
           src={`${recommendation.imageSrc}`}
           alt={`${recommendation.name}`}
           sx={{
-            marginLeft: "auto",
-            borderRadius: "50%",
+            marginLeft: 'auto',
+            borderRadius: '50%',
             width: 120,
             height: 120,
             zIndex: 10,
           }}
         />
-        <CardContent sx={{ position: "relative" }}>
+        <CardContent sx={{ position: 'relative' }}>
           <Box
             sx={{
-              position: "relative",
-              minHeight: "250px",
-              width: "100%",
+              position: 'relative',
+              minHeight: '250px',
+              width: '100%',
             }}
           >
             <Box>
-              <Typography variant="h5">{recommendation.name}</Typography>
-              <Typography sx={{ fontSize: "0.8rem", color: "lightgray" }}>
+              <Typography variant='h5'>{recommendation.name}</Typography>
+              <Typography sx={{ fontSize: '0.8rem', color: 'lightgray' }}>
                 <i>{recommendation.title}</i>
               </Typography>
-              <Divider sx={{ marginTop: "0.5rem" }} />
+              <Divider sx={{ marginTop: '0.5rem' }} />
               <Typography
-                variant="body2"
+                variant='body2'
                 sx={{
-                  color: "lightgray",
-                  marginTop: `${dialog ? "0.5rem" : "2rem"}`,
-                  maxHeight: "130px",
-                  overflowY: "scroll",
+                  color: 'lightgray',
+                  marginTop: `${dialog ? '0.5rem' : '2rem'}`,
+                  maxHeight: '130px',
+                  overflowY: 'scroll',
                 }}
               >
                 {dialog
                   ? recommendation.comment
                   : recommendation.comment.substring(0, MAX_CHARACTERS)}
                 {dialog
-                  ? ""
+                  ? ''
                   : recommendation.comment.length > MAX_CHARACTERS && (
                       <span>...</span>
                     )}
               </Typography>
             </Box>
             {recommendation.comment.length > MAX_CHARACTERS && !dialog && (
-              <Box sx={{ marginTop: "1rem" }}>
+              <Box sx={{ marginTop: '1rem' }}>
                 <Button
-                  variant="contained"
+                  variant='contained'
                   onClick={handleOpen}
-                  sx={{ backgroundColor: `${color}`, color: "white" }}
+                  sx={{ backgroundColor: `${color}`, color: 'white' }}
                 >
                   Read More
                 </Button>
@@ -190,17 +191,17 @@ export const Recommendation = ({ recommendation, dialog }: IRecommendation) => {
 
             <Box
               sx={{
-                marginTop: "2rem",
-                padding: "8px 16px 4px 16px",
-                backgroundColor: "rgba(0,0,0,0.3)",
-                borderRadius: "32px",
-                position: "absolute",
+                marginTop: '2rem',
+                padding: '8px 16px 4px 16px',
+                backgroundColor: 'rgba(0,0,0,0.3)',
+                borderRadius: '32px',
+                position: 'absolute',
                 bottom: 0,
                 left: -4,
               }}
             >
               <Rating
-                name="read-only"
+                name='read-only'
                 value={recommendation.review}
                 readOnly
                 sx={{ color: `${color}` }}

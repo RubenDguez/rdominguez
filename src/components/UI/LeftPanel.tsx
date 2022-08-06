@@ -6,20 +6,20 @@ import {
   Divider,
   Grid,
   Typography,
-} from "@mui/material";
-import { Container } from "@mui/system";
+} from '@mui/material';
+import { Container } from '@mui/system';
 import {
   TImage,
   TMediaLink,
   TPersonalInformation,
   TSkill,
   TSpokenLanguage,
-} from "../../types";
-import { MediaLinks } from "./MediaLinks";
-import { PersonalInf } from "./PersonalInformation";
-import { Skills } from "./Skills";
-import { SkillsWithProgressBar } from "./SkillsWithProgressBar";
-import { SpokenLanguages } from "./SpokenLanguages";
+} from '../../types';
+import { MediaLinks } from './MediaLinks';
+import { PersonalInf } from './PersonalInformation';
+import { Skills } from './Skills';
+import { SkillsWithProgressBar } from './SkillsWithProgressBar';
+import { SpokenLanguages } from './SpokenLanguages';
 
 export interface ILeftPanel {
   name: String;
@@ -50,28 +50,28 @@ export const LeftPanel = ({
     <Card>
       <Box
         sx={{
-          padding: "1rem",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100%",
-          height: "100%",
+          padding: '1rem',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100%',
+          height: '100%',
         }}
       >
         <CardMedia
           sx={{
-            borderRadius: "50%",
+            borderRadius: '50%',
             height: 160,
             width: 160,
           }}
-          component="img"
-          alt="ruben dominguez"
+          component='img'
+          alt='ruben dominguez'
           image={image}
         />
       </Box>
-      <Box sx={{ width: "100%", textAlign: "center" }}>
-        <Typography variant="h6">{name}</Typography>
-        <Typography variant="caption">{position}</Typography>
+      <Box sx={{ width: '100%', textAlign: 'center' }}>
+        <Typography variant='h6'>{name}</Typography>
+        <Typography>{position}</Typography>
       </Box>
       <CardContent>
         <Divider />
@@ -88,9 +88,9 @@ export const LeftPanel = ({
             container
             spacing={2}
             sx={{
-              display: "flex",
-              alignContent: "center",
-              justifyContent: "center",
+              display: 'flex',
+              alignContent: 'center',
+              justifyContent: 'center',
             }}
           >
             <SpokenLanguages spokenLanguages={spokenLanguages} />
@@ -102,12 +102,12 @@ export const LeftPanel = ({
         <Divider />
         <Box
           sx={{
-            textAlign: "center",
-            marginTop: "1rem",
-            textTransform: "uppercase",
+            textAlign: 'center',
+            marginTop: '1rem',
+            textTransform: 'uppercase',
           }}
         >
-          <Typography variant="caption">Front End Skills</Typography>
+          <Typography variant='caption'>Front End Skills</Typography>
         </Box>
         <Container sx={{ my: 2 }}>
           <SkillsWithProgressBar skills={frontEndSkills} />
@@ -118,12 +118,12 @@ export const LeftPanel = ({
         <Divider />
         <Box
           sx={{
-            textAlign: "center",
-            marginTop: "1rem",
-            textTransform: "uppercase",
+            textAlign: 'center',
+            marginTop: '1rem',
+            textTransform: 'uppercase',
           }}
         >
-          <Typography variant="caption">Back End Skills</Typography>
+          <Typography variant='caption'>Back End Skills</Typography>
         </Box>
         <Container sx={{ my: 2 }}>
           <SkillsWithProgressBar skills={backEndSkills} />

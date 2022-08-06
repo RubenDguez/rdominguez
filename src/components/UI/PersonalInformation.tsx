@@ -1,6 +1,10 @@
-import { Box, Divider, Grid, Typography } from "@mui/material";
-import { TPersonalInformation } from "../../types";
+import { Box, Divider, Grid, Typography } from '@mui/material';
+import { TPersonalInformation } from '../../types';
 
+/**
+ * Interface representing the user information
+ * @description This interface represents the user information
+ */
 export interface IPersonalInformation {
   personalInformationData: TPersonalInformation[];
 }
@@ -17,24 +21,24 @@ export const PersonalInf = ({
               item
               xs={6}
               sx={{
-                textAlign: "left",
+                textAlign: 'left',
               }}
             >
-              <Typography variant="caption">{m.key}</Typography>
+              <Typography>{m.key}</Typography>
             </Grid>
             <Grid
               item
               xs={6}
               sx={{
-                textAlign: "right",
-                fontWeight: "600",
+                textAlign: 'right',
+                fontWeight: '600',
               }}
             >
-              <Typography variant="caption">{`${m.description}`}</Typography>
+              <Typography>{`${m.description}`}</Typography>
             </Grid>
           </Grid>
           {personalInformationData.length - 1 > i && (
-            <Divider sx={{ marginTop: "0.65rem" }} />
+            <Divider sx={{ marginTop: '0.65rem' }} />
           )}
         </Box>
       ))}
