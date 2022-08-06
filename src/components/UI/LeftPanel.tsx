@@ -107,7 +107,7 @@ export const LeftPanel = ({
             textTransform: 'uppercase',
           }}
         >
-          <Typography variant='caption'>Front End Skills</Typography>
+          <Typography>Front End Skills</Typography>
         </Box>
         <Container sx={{ my: 2 }}>
           <SkillsWithProgressBar skills={frontEndSkills} />
@@ -123,7 +123,7 @@ export const LeftPanel = ({
             textTransform: 'uppercase',
           }}
         >
-          <Typography variant='caption'>Back End Skills</Typography>
+          <Typography>Back End Skills</Typography>
         </Box>
         <Container sx={{ my: 2 }}>
           <SkillsWithProgressBar skills={backEndSkills} />

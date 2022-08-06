@@ -3,9 +3,9 @@ import {
   LinearProgress,
   LinearProgressProps,
   Typography,
-} from "@mui/material";
-import { useContext, useEffect, useState } from "react";
-import { ColorContext } from "../../theme/Color";
+} from '@mui/material';
+import { useContext, useEffect, useState } from 'react';
+import { ColorContext } from '../../theme/Color';
 
 export interface IProgressBarWithLabel extends LinearProgressProps {
   label: String;
@@ -32,24 +32,22 @@ export const ProgressBarWithLabel = ({
 
   return (
     <Grid container spacing={0} sx={{ py: 1 }}>
-      <Grid item xs={6} sx={{ textAlign: "left" }}>
-        <Typography variant="caption">{label}</Typography>
+      <Grid item xs={6} sx={{ textAlign: 'left' }}>
+        <Typography>{label}</Typography>
       </Grid>
-      <Grid item xs={6} sx={{ textAlign: "right" }}>
-        <Typography variant="caption">{`${Math.floor(
-          value * 100
-        )}%`}</Typography>
+      <Grid item xs={6} sx={{ textAlign: 'right' }}>
+        <Typography>{`${Math.floor(value * 100)}%`}</Typography>
       </Grid>
       <Grid item xs={12}>
         <LinearProgress
           sx={{
-            backgroundColor: "transparent",
-            "& .MuiLinearProgress-barColorPrimary": {
+            backgroundColor: 'transparent',
+            '& .MuiLinearProgress-barColorPrimary': {
               backgroundColor: `${color}`,
             },
           }}
-          variant="determinate"
-          color="primary"
+          variant='determinate'
+          color='primary'
           value={counter}
           {...rest}
         />
