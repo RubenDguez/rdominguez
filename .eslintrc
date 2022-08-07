@@ -1,0 +1,30 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "react"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended"
+  ],
+
+  "rules": {
+    "react/no-set-state": "error",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "no-console": "error",
+    "no-empty-function": "error",
+    "no-unused-vars": [
+      "error",
+      { "vars": "all", "varsIgnorePattern": "^(INPUT|OPTION)_[A-Z][A-Za-z]*$" }
+    ],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

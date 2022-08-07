@@ -7,7 +7,6 @@ export type TAchievement = {
   name: string;
   plus?: boolean;
 };
-
 export interface IAchievements {
   achievements: TAchievement[];
 }
