@@ -1,14 +1,14 @@
-import { Box } from "@mui/material";
-import { useContext, useEffect, useState } from "react";
-import { ColorContext } from "../../theme/Color";
+import { Box } from '@mui/material';
+import { useContext, useEffect, useState } from 'react';
+import { ColorContext } from '../../theme/Color';
 
 export interface ICodingMockup {
-  codingPhrases: String[];
+  codingPhrases: string[];
 }
 
 export const CodingMockup = ({ codingPhrases }: ICodingMockup) => {
   const [currentPhrase, setCurrentPhrase] = useState(0);
-  const [phrase, setPhrase] = useState("");
+  const [phrase, setPhrase] = useState('');
   const [substring, setSubstring] = useState(7);
   const [opacity, setOpacity] = useState(1);
   const color = useContext(ColorContext);
@@ -52,7 +52,7 @@ export const CodingMockup = ({ codingPhrases }: ICodingMockup) => {
   });
 
   return (
-    <Box sx={{ fontFamily: "monospace" }}>
+    <Box sx={{ fontFamily: 'monospace' }}>
       <span>&#60;</span>
       <span style={{ color: `${color}` }}>
         <i>code</i>
@@ -60,23 +60,23 @@ export const CodingMockup = ({ codingPhrases }: ICodingMockup) => {
       <span>&#62;</span>
       <div
         style={{
-          display: "inline",
-          backgroundColor: "rgba(50,50,255,0.5)",
-          padding: "0.3rem",
-          borderRadius: "4px",
+          display: 'inline',
+          backgroundColor: 'rgba(50,50,255,0.5)',
+          padding: '0.3rem',
+          borderRadius: '4px',
         }}
       >
         <span>{phrase}</span>
         <span
           style={{
-            fontWeight: "bolder",
+            fontWeight: 'bolder',
             opacity: `${opacity}`,
-            transition: "ease-in-out 100ms",
-            backgroundColor: "rgba(0,255,0,0.65)",
-            color: "transparent",
-            maxWidth: "3px",
+            transition: 'ease-in-out 100ms',
+            backgroundColor: 'rgba(0,255,0,0.65)',
+            color: 'transparent',
+            maxWidth: '3px',
             padding: 0,
-            marginLeft: "4px",
+            marginLeft: '4px',
           }}
         >
           |

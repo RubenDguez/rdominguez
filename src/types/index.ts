@@ -1,21 +1,21 @@
 export type TImage = any;
 
 export type TPersonalInformation = {
-  key: String;
-  description: String | Number;
+  key: string;
+  description: string | number;
 };
 
 export type TSpokenLanguage = {
-  language: String;
+  language: string;
   percentage: number;
 };
 
 export type TSkill = {
-  skill: String;
+  skill: string;
   percentage?: number;
 };
 
 export type TMediaLink = {
-  link: String;
+  link: string;
   icon: React.ReactNode;
 };
