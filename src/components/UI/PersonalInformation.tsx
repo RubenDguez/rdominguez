@@ -22,6 +22,9 @@ export const PersonalInf = ({
               xs={6}
               sx={{
                 textAlign: 'left',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
               }}
             >
               <Typography>{m.key}</Typography>
@@ -31,7 +34,9 @@ export const PersonalInf = ({
               xs={6}
               sx={{
                 textAlign: 'right',
-                fontWeight: '600',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
               }}
             >
               <Typography>{`${m.description}`}</Typography>

@@ -107,11 +107,7 @@ export const Service = ({ service }: IService) => {
           {service.title}
         </Typography>
         <Divider />
-        <Typography
-          sx={{ marginTop: '1.8rem' }}
-          variant='body2'
-          color='text.secondary'
-        >
+        <Typography sx={{ marginTop: '1.8rem' }} color='text.secondary'>
           {service.description}
         </Typography>
       </CardContent>
