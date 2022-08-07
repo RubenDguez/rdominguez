@@ -7,6 +7,10 @@ on:
   push:
     branches: ['main']
 
+  pull_request:
+    branches: [ "main" ]
+    branches: [ "develop" ]
+
 jobs:
   build:
     runs-on: ubuntu-latest
