@@ -1,6 +1,7 @@
+import CloseIcon from '@mui/icons-material/Close';
+import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import {
   Box,
-  Button,
   Card,
   CardContent,
   CardMedia,
@@ -11,7 +12,7 @@ import {
   Typography,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { ReactNode, useContext, useEffect, useState } from 'react';
+import { ReactNode, useCallback, useContext, useEffect, useState } from 'react';
 import { ColorContext } from '../../theme/Color';
 
 export type TRecommendation = {
@@ -107,7 +108,7 @@ export interface IRecommendation {
 }
 
 export const Recommendation = ({ recommendation, dialog }: IRecommendation) => {
-  const MAX_CHARACTERS = 70;
+  const MAX_CHARACTERS = 60;
   const [open, setOpen] = useState(false);
   const color = useContext(ColorContext);
 
@@ -115,9 +116,9 @@ export const Recommendation = ({ recommendation, dialog }: IRecommendation) => {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setOpen(false);
-  };
+  }, [setOpen]);
 
   return (
     <>
@@ -129,7 +130,7 @@ export const Recommendation = ({ recommendation, dialog }: IRecommendation) => {
       <Card
         sx={{
           overflow: 'visible',
-          padding: '1rem 1rem',
+          padding: '1rem 1rem 0rem 1rem',
         }}
       >
         <CardMedia
@@ -145,67 +146,74 @@ export const Recommendation = ({ recommendation, dialog }: IRecommendation) => {
           }}
         />
         <CardContent sx={{ position: 'relative' }}>
-          <Box
-            sx={{
-              position: 'relative',
-              minHeight: '250px',
-              width: '100%',
-            }}
-          >
+          <Box>
             <Box>
               <Typography variant='h5'>{recommendation.name}</Typography>
               <Typography sx={{ fontSize: '0.8rem', color: 'lightgray' }}>
                 <i>{recommendation.title}</i>
               </Typography>
               <Divider sx={{ marginTop: '0.5rem' }} />
-              <Typography
-                variant='body2'
-                sx={{
-                  color: 'lightgray',
-                  marginTop: `${dialog ? '0.5rem' : '2rem'}`,
-                  maxHeight: '130px',
-                  overflowY: 'scroll',
-                }}
-              >
-                {dialog
-                  ? recommendation.comment
-                  : recommendation.comment.substring(0, MAX_CHARACTERS)}
-                {dialog
-                  ? ''
-                  : recommendation.comment.length > MAX_CHARACTERS && (
-                      <span>...</span>
-                    )}
-              </Typography>
-            </Box>
-            {recommendation.comment.length > MAX_CHARACTERS && !dialog && (
-              <Box sx={{ marginTop: '1rem' }}>
-                <Button
-                  variant='contained'
-                  onClick={handleOpen}
-                  sx={{ backgroundColor: `${color}`, color: 'white' }}
-                >
-                  Read More
-                </Button>
-              </Box>
-            )}
+              <Grid container>
+                <Grid item xs={12}>
+                  <Typography
+                    sx={{
+                      color: 'lightgray',
+                      marginTop: `${dialog ? '0.5rem' : '2rem'}`,
+                      minHeight: '100px',
+                      maxHeight: '100px',
+                      overflowY: 'scroll',
+                      marginBottom: '30px',
+                    }}
+                  >
+                    {dialog
+                      ? recommendation.comment
+                      : recommendation.comment.substring(0, MAX_CHARACTERS)}
+                    {dialog
+                      ? ''
+                      : recommendation.comment.length > MAX_CHARACTERS && '...'}
+                  </Typography>
+                </Grid>
 
-            <Box
-              sx={{
-                marginTop: '2rem',
-                padding: '8px 16px 4px 16px',
-                backgroundColor: 'rgba(0,0,0,0.3)',
-                borderRadius: '32px',
-                position: 'absolute',
-                bottom: 0,
-                left: -4,
-              }}
-            >
-              <Rating
-                name='read-only'
-                value={recommendation.review}
-                readOnly
-                sx={{ color: `${color}` }}
-              />
+                <Grid container sx={{ minHeight: 40 }}>
+                  <Grid
+                    item
+                    xs={6}
+                    sx={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <Rating
+                      size='small'
+                      value={recommendation.review}
+                      readOnly
+                      sx={{ color: `${color}` }}
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={6}
+                    sx={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    {recommendation.comment.length > MAX_CHARACTERS && !dialog && (
+                      <ReadMoreIcon
+                        onClick={handleOpen}
+                        fontSize='large'
+                        sx={{
+                          color: `${color}`,
+                          alignSelf: 'end',
+                          cursor: 'pointer',
+                        }}
+                      />
+                    )}
+                  </Grid>
+                </Grid>
+              </Grid>
             </Box>
           </Box>
         </CardContent>
@@ -225,8 +233,19 @@ const RecommendationDialog = ({
   open,
   close,
 }: IRecommendationDialog) => {
+  const color = useContext(ColorContext);
   return (
     <Dialog open={open} onClose={close} fullWidth>
+      <CloseIcon
+        onClick={close}
+        fontSize='large'
+        sx={{
+          color: `${color}`,
+          alignSelf: 'end',
+          cursor: 'pointer',
+          margin: '1rem',
+        }}
+      />
       {contents}
     </Dialog>
   );
