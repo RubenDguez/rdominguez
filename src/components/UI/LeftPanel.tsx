@@ -22,9 +22,9 @@ import { SkillsWithProgressBar } from './SkillsWithProgressBar';
 import { SpokenLanguages } from './SpokenLanguages';
 
 export interface ILeftPanel {
-  name: String;
-  position: String;
-  bio: String;
+  name: string;
+  position: string;
+  bio: string;
   personalInformationData: TPersonalInformation[];
   spokenLanguages: TSpokenLanguage[];
   frontEndSkills: TSkill[];
@@ -37,7 +37,6 @@ export interface ILeftPanel {
 export const LeftPanel = ({
   name,
   position,
-  bio,
   personalInformationData,
   spokenLanguages,
   frontEndSkills,

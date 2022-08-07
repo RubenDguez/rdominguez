@@ -1,10 +1,10 @@
-import { Grid, Typography } from "@mui/material";
-import { useContext, useEffect, useState } from "react";
-import { ColorContext } from "../../theme/Color";
+import { Grid, Typography } from '@mui/material';
+import { useContext, useEffect, useState } from 'react';
+import { ColorContext } from '../../theme/Color';
 
 export type TAchievement = {
   achievement: number;
-  name: String;
+  name: string;
   plus?: boolean;
 };
 
@@ -18,8 +18,8 @@ export const Achievements = ({ achievements }: IAchievements) => {
       container
       spacing={4}
       sx={{
-        display: "flex",
-        alignItems: "center",
+        display: 'flex',
+        alignItems: 'center',
       }}
     >
       {achievements.map((m, i) => (
@@ -53,24 +53,24 @@ export const Achievement = ({ achievement }: IAchievement) => {
       sm={4}
       md={3}
       sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        textAlign: "center",
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center',
       }}
     >
       <Typography
         sx={{
           color: `${color}`,
-          fontSize: "1.45rem",
-          fontWeight: "800",
-          marginRight: "1rem",
+          fontSize: '1.45rem',
+          fontWeight: '800',
+          marginRight: '1rem',
         }}
       >
         {counter}
         {achievement.plus && <span>+</span>}
       </Typography>
-      <Typography sx={{ fontSize: "0.8rem", color: "lightgray" }}>
+      <Typography sx={{ fontSize: '0.8rem', color: 'lightgray' }}>
         {achievement.name}
       </Typography>
     </Grid>
