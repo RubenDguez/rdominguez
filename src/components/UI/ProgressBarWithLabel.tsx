@@ -8,7 +8,7 @@ import { useContext, useEffect, useState } from 'react';
 import { ColorContext } from '../../theme/Color';
 
 export interface IProgressBarWithLabel extends LinearProgressProps {
-  label: String;
+  label: string;
   value: number;
 }
 

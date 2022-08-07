@@ -9,9 +9,15 @@ import {
 } from '@mui/material';
 import { useEffect, useState } from 'react';
 
+const servicesColumns = (serviceCount: number): number => {
+  if (serviceCount > 2) return 4;
+  if (serviceCount > 1) return 6;
+  return 12;
+};
+
 export type TService = {
-  title: String;
-  description: String;
+  title: string;
+  description: string;
 };
 
 export interface IServices {
@@ -67,7 +73,7 @@ export const Services = ({ services }: IServices) => {
                 item
                 xs={12}
                 sm={serv.length > 1 ? 6 : 12}
-                lg={serv.length > 2 ? 4 : serv.length > 1 ? 6 : 12}
+                lg={servicesColumns(serv.length)}
               >
                 <Service service={m} />
               </Grid>

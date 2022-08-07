@@ -1,15 +1,14 @@
-import { Grid } from "@mui/material";
-// import { styled } from "@mui/material/styles";
-import { Achievements, TAchievement } from "./Achievements";
-import { Hero } from "./Hero";
-import { Recommendations, TRecommendation } from "./Recommendations";
-import { Services, TService } from "./Services";
+import { Grid } from '@mui/material';
+import { Achievements, TAchievement } from './Achievements';
+import { Hero } from './Hero';
+import { Recommendations, TRecommendation } from './Recommendations';
+import { Services, TService } from './Services';
 
 export interface IRightPanel {
   image: any;
   face: any;
-  mainPhrase: String;
-  codingPhrases: String[];
+  mainPhrase: string;
+  codingPhrases: string[];
   achievements: TAchievement[];
   services: TService[];
   recommendations: TRecommendation[];
@@ -46,13 +45,3 @@ export const RightPanel = ({
     </Grid>
   );
 };
-
-// const SXDiv = styled(Box)(({ theme }) => ({
-//   width: "100%",
-//   [theme.breakpoints.down("lg")]: {
-//     display: "none",
-//   },
-//   [theme.breakpoints.up("lg")]: {
-//     display: "inline-block",
-//   },
-// }));

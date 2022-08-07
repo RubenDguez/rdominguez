@@ -1,12 +1,12 @@
-import { Box, Grid, Typography } from "@mui/material";
-import { CodingMockup } from "./CodingMockup";
-import { styled } from "@mui/material/styles";
+import { Box, Grid, Typography } from '@mui/material';
+import { CodingMockup } from './CodingMockup';
+import { styled } from '@mui/material/styles';
 
 export interface IHero {
   background: any;
   face: any;
-  mainPhrase: String;
-  codingPhrases: String[];
+  mainPhrase: string;
+  codingPhrases: string[];
 }
 
 export const Hero = ({
@@ -20,8 +20,8 @@ export const Hero = ({
       container
       sx={{
         background: `url(${background}) fixed`,
-        backgroundSize: "cover",
-        overflow: "hidden",
+        backgroundSize: 'cover',
+        overflow: 'hidden',
       }}
     >
       <Grid
@@ -29,18 +29,18 @@ export const Hero = ({
         xs={12}
         md={8}
         sx={{
-          backgroundColor: "rgba(0,0,0,0.4)",
-          padding: "2rem 1rem",
+          backgroundColor: 'rgba(0,0,0,0.4)',
+          padding: '2rem 1rem',
         }}
       >
         <Grid container>
           <Grid item xs={12}>
             <Typography
               sx={{
-                marginBottom: "1rem",
-                fontSize: "3rem",
-                textTransform: "capitalize",
-                fontWeight: "800",
+                marginBottom: '1rem',
+                fontSize: '3rem',
+                textTransform: 'capitalize',
+                fontWeight: '800',
               }}
             >
               {mainPhrase}
@@ -58,15 +58,15 @@ export const Hero = ({
         xs={12}
         md={4}
         sx={{
-          backgroundColor: "rgba(0,0,0,0.4)",
-          padding: "2rem",
+          backgroundColor: 'rgba(0,0,0,0.4)',
+          padding: '2rem',
         }}
       >
         <img
           src={`${face}`}
-          alt="face"
+          alt='face'
           width={200}
-          style={{ borderRadius: "50%" }}
+          style={{ borderRadius: '50%' }}
         />
       </StyledGrid>
     </StyledGridCentered>
@@ -74,27 +74,27 @@ export const Hero = ({
 };
 
 const StyledGrid = styled(Grid)(({ theme }) => ({
-  [theme.breakpoints.up("xs")]: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+  [theme.breakpoints.up('xs')]: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 }));
 
 const StyledGridCentered = styled(Grid)(({ theme }) => ({
-  [theme.breakpoints.down("lg")]: {
-    textAlign: "center",
-    display: "flex",
-    alignItem: "center",
-    justifyContent: "center",
+  [theme.breakpoints.down('lg')]: {
+    textAlign: 'center',
+    display: 'flex',
+    alignItem: 'center',
+    justifyContent: 'center',
   },
 }));
 
 const StyledBox = styled(Box)(({ theme }) => ({
-  [theme.breakpoints.down("xl")]: {
-    fontSize: "1rem",
+  [theme.breakpoints.down('xl')]: {
+    fontSize: '1rem',
   },
-  [theme.breakpoints.down("lg")]: {
-    fontSize: "0.75rem",
+  [theme.breakpoints.down('lg')]: {
+    fontSize: '0.75rem',
   },
 }));

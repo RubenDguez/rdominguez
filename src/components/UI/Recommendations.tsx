@@ -15,10 +15,16 @@ import { styled } from '@mui/material/styles';
 import { ReactNode, useCallback, useContext, useEffect, useState } from 'react';
 import { ColorContext } from '../../theme/Color';
 
+const recommendationsColumns = (recommendationQuantity: number): number => {
+  if (recommendationQuantity > 2) return 4;
+  if (recommendationQuantity > 1) return 6;
+  return 12;
+};
+
 export type TRecommendation = {
-  name: String;
-  title: String;
-  comment: String;
+  name: string;
+  title: string;
+  comment: string;
   review: number;
   imageSrc: any;
 };
@@ -75,13 +81,7 @@ export const Recommendations = ({ recommendations }: IRecommendations) => {
                 item
                 xs={12}
                 sm={recommendations.length > 1 ? 6 : 12}
-                lg={
-                  recommendations.length > 2
-                    ? 4
-                    : recommendations.length > 1
-                    ? 6
-                    : 12
-                }
+                lg={recommendationsColumns(recommendations.length)}
               >
                 <Recommendation recommendation={m} />
               </Grid>
