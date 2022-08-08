@@ -1,6 +1,6 @@
-import { CssBaseline, ThemeProvider as TP } from "@mui/material";
-import { ReactNode } from "react";
-import { darkTheme } from "./Theme";
+import { CssBaseline, ThemeProvider as TP } from '@mui/material';
+import { ReactNode } from 'react';
+import { darkTheme } from './Theme';
 
 export interface IThemeProvider {
   children: ReactNode;

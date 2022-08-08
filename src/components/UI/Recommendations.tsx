@@ -14,6 +14,7 @@ import {
 import { styled } from '@mui/material/styles';
 import { ReactNode, useCallback, useContext, useEffect, useState } from 'react';
 import { ColorContext } from '../../theme/Color';
+import { TImage } from '../../types';
 
 const recommendationsColumns = (recommendationQuantity: number): number => {
   if (recommendationQuantity > 2) return 4;
@@ -26,7 +27,7 @@ export type TRecommendation = {
   title: string;
   comment: string;
   review: number;
-  imageSrc: any;
+  imageSrc: TImage;
 };
 
 export interface IRecommendations {

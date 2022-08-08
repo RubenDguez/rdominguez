@@ -1,10 +1,11 @@
 import { Box, Grid, Typography } from '@mui/material';
 import { CodingMockup } from './CodingMockup';
 import { styled } from '@mui/material/styles';
+import { TImage } from '../../types';
 
 export interface IHero {
-  background: any;
-  face: any;
+  background: TImage;
+  face: TImage;
   mainPhrase: string;
   codingPhrases: string[];
 }

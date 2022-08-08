@@ -1,5 +1,5 @@
-import { TSkill } from "../../types";
-import { ProgressBarWithLabel } from "./ProgressBarWithLabel";
+import { TSkill } from '../../types';
+import { ProgressBarWithLabel } from './ProgressBarWithLabel';
 
 export interface ISkillsWithProgressBar {
   skills: TSkill[];

@@ -1,12 +1,13 @@
 import { Grid } from '@mui/material';
+import { TImage } from '../../types';
 import { Achievements, TAchievement } from './Achievements';
 import { Hero } from './Hero';
 import { Recommendations, TRecommendation } from './Recommendations';
 import { Services, TService } from './Services';
 
 export interface IRightPanel {
-  image: any;
-  face: any;
+  image: TImage;
+  face: TImage;
   mainPhrase: string;
   codingPhrases: string[];
   achievements: TAchievement[];

@@ -1,7 +1,7 @@
-import { Box, Link } from "@mui/material";
-import { useContext } from "react";
-import { ColorContext } from "../../theme/Color";
-import { TMediaLink } from "../../types";
+import { Box, Link } from '@mui/material';
+import { useContext } from 'react';
+import { ColorContext } from '../../theme/Color';
+import { TMediaLink } from '../../types';
 
 export interface IMediaLinks {
   mediaLinks: TMediaLink[];
@@ -12,9 +12,9 @@ export const MediaLinks = ({ mediaLinks }: IMediaLinks) => {
   return (
     <Box
       sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
       }}
     >
       {mediaLinks.map((m, i) => (

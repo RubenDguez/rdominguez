@@ -2,10 +2,10 @@ import {
   CircularProgress,
   CircularProgressProps,
   Typography,
-} from "@mui/material";
-import { Box } from "@mui/system";
-import { useContext, useEffect, useState } from "react";
-import { ColorContext } from "../../theme/Color";
+} from '@mui/material';
+import { Box } from '@mui/system';
+import { useContext, useEffect, useState } from 'react';
+import { ColorContext } from '../../theme/Color';
 
 export interface ICircularProgressBarWithLabel extends CircularProgressProps {
   value: number;
@@ -28,7 +28,7 @@ export const CircularProgressBarWithLabel = ({
   });
 
   return (
-    <Box sx={{ position: "relative", display: "inline-flex" }}>
+    <Box sx={{ position: 'relative', display: 'inline-flex' }}>
       <CircularProgress
         sx={{ color: `${color}` }}
         size={50}
@@ -42,13 +42,13 @@ export const CircularProgressBarWithLabel = ({
           bottom: 0,
           left: 0,
           right: 0,
-          position: "absolute",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          position: 'absolute',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
-        <Typography sx={{ fontSize: "0.60rem" }}>{`${Math.round(
+        <Typography sx={{ fontSize: '0.60rem' }}>{`${Math.round(
           value * 100
         )}%`}</Typography>
       </Box>

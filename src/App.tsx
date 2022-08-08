@@ -1,5 +1,5 @@
-import { Box } from "@mui/material";
-import { Main } from "./layout/Main";
+import { Box } from '@mui/material';
+import { Main } from './layout/Main';
 
 export const App = () => {
   return (

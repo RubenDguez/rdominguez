@@ -1,22 +1,22 @@
-import { ReactNode, createContext, useState, useEffect } from "react";
+import { ReactNode, createContext, useState, useEffect } from 'react';
 
 export const colors = [
-  "tomato",
-  "magenta",
-  "blue",
-  "teal",
-  "green",
-  "red",
-  "darkorange",
-  "hotpink",
-  "deeppink",
-  "crimson",
-  "fuchsia",
-  "steelblue",
-  "salmon",
+  'tomato',
+  'magenta',
+  'blue',
+  'teal',
+  'green',
+  'red',
+  'darkorange',
+  'hotpink',
+  'deeppink',
+  'crimson',
+  'fuchsia',
+  'steelblue',
+  'salmon',
 ];
 
-export const ColorContext = createContext<String>("");
+export const ColorContext = createContext<string>('');
 
 export interface IColors {
   children: ReactNode;
