@@ -7,10 +7,10 @@ export interface IThemeProvider {
 }
 
 export const ThemeProvider = ({ children }: IThemeProvider) => {
-  return (
-    <TP theme={darkTheme}>
-      <CssBaseline />
-      {children}
-    </TP>
-  );
+    return (
+        <TP theme={darkTheme}>
+            <CssBaseline />
+            {children}
+        </TP>
+    );
 };

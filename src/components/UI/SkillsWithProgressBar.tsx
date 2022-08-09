@@ -6,15 +6,15 @@ export interface ISkillsWithProgressBar {
 }
 
 export const SkillsWithProgressBar = ({ skills }: ISkillsWithProgressBar) => {
-  return (
-    <>
-      {skills.map((m, i) => (
-        <ProgressBarWithLabel
-          key={i}
-          label={m.skill}
-          value={m.percentage || 0}
-        />
-      ))}
-    </>
-  );
+    return (
+        <>
+            {skills.map((m, i) => (
+                <ProgressBarWithLabel
+                    key={i}
+                    label={m.skill}
+                    value={m.percentage || 0}
+                />
+            ))}
+        </>
+    );
 };
