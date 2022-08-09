@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type TImage = any;
 
 export type TPersonalInformation = {

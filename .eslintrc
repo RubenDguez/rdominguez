@@ -1,0 +1,63 @@
+{
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "react/no-set-state": "error",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "no-console": "error",
+    "no-empty-function": "error",
+    "no-unused-vars": [
+      2,
+      { "vars": "all", "varsIgnorePattern": "^(INPUT|OPTION)_[A-Z][A-Za-z]*$" }
+    ],
+    "quotes": [2, "single"],
+    "semi": [2, "always"],
+    "indent": [2, 4],
+    "comma-dangle": [2, "always-multiline"],
+    "no-irregular-whitespace": "error",
+    "no-unexpected-multiline": "error",
+    "valid-jsdoc": [
+      2,
+      {
+        "requireParamDescription": true,
+        "requireReturnDescription": true,
+        "requireReturn": true,
+        "prefer": {
+          "returns": "return"
+        }
+      }
+    ],
+    "guard-for-in": "error",
+    "no-invalid-this": "error",
+    "no-caller": "error",
+    "no-extend-native": "error",
+    "no-extra-bind": "error",
+    "no-multi-spaces": "error",
+    "no-multi-str": "error",
+    "no-new-wrappers": "error",
+    "no-throw-literal": "error",
+    "no-multiple-empty-lines": [2, { "max": 2 }],
+    "no-trailing-spaces": "error",
+    "no-mixed-spaces-and-tabs": "error",
+    "padded-blocks": [2, "never"]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
