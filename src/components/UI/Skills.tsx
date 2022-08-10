@@ -9,19 +9,19 @@ export interface ISkills {
 }
 
 export const Skills = ({ skills }: ISkills) => {
-  const color = useContext(ColorContext);
-  return (
-    <>
-      {skills.map((m, i) => (
-        <Box key={i}>
-          <Typography sx={{ display: 'flex' }}>
-            <DoneIcon
-              sx={{ fontSize: '1rem', color: `${color}`, mr: 1, mb: 1 }}
-            />
-            {m.skill}
-          </Typography>
-        </Box>
-      ))}
-    </>
-  );
+    const color = useContext(ColorContext);
+    return (
+        <>
+            {skills.map((m, i) => (
+                <Box key={i}>
+                    <Typography sx={{ display: 'flex' }}>
+                        <DoneIcon
+                            sx={{ fontSize: '1rem', color: `${color}`, mr: 1, mb: 1 }}
+                        />
+                        {m.skill}
+                    </Typography>
+                </Box>
+            ))}
+        </>
+    );
 };

@@ -10,43 +10,43 @@ export interface IPersonalInformation {
 }
 
 export const PersonalInf = ({
-  personalInformationData,
+    personalInformationData,
 }: IPersonalInformation) => {
-  return (
-    <>
-      {personalInformationData.map((m, i) => (
-        <Box key={i}>
-          <Grid container spacing={1}>
-            <Grid
-              item
-              xs={6}
-              sx={{
-                textAlign: 'left',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-              }}
-            >
-              <Typography>{m.key}</Typography>
-            </Grid>
-            <Grid
-              item
-              xs={6}
-              sx={{
-                textAlign: 'right',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-              }}
-            >
-              <Typography>{`${m.description}`}</Typography>
-            </Grid>
-          </Grid>
-          {personalInformationData.length - 1 > i && (
-            <Divider sx={{ marginTop: '0.65rem' }} />
-          )}
-        </Box>
-      ))}
-    </>
-  );
+    return (
+        <>
+            {personalInformationData.map((m, i) => (
+                <Box key={i}>
+                    <Grid container spacing={1}>
+                        <Grid
+                            item
+                            xs={6}
+                            sx={{
+                                textAlign: 'left',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            <Typography>{m.key}</Typography>
+                        </Grid>
+                        <Grid
+                            item
+                            xs={6}
+                            sx={{
+                                textAlign: 'right',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            <Typography>{`${m.description}`}</Typography>
+                        </Grid>
+                    </Grid>
+                    {personalInformationData.length - 1 > i && (
+                        <Divider sx={{ marginTop: '0.65rem' }} />
+                    )}
+                </Box>
+            ))}
+        </>
+    );
 };
