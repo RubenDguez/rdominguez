@@ -1,9 +1,9 @@
 import { Container, Grid } from '@mui/material';
 import { LeftPanel } from '../components/UI/LeftPanel';
 import { RightPanel } from '../components/UI/RightPanel';
-import background from '../images/binary-code.webp';
-import person from '../images/me.jpeg';
-import person2 from '../images/me2.png';
+import background from '../images/peakpx.jpg';
+import person from '../images/fotor31.png';
+import person2 from '../images/fotor1.png';
 
 import {
   name,
