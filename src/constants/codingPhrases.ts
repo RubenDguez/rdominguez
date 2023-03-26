@@ -1,4 +1,4 @@
-export const mainPhrase = 'Discovery my amazing art space!';
+export const mainPhrase = 'Discover my amazing Art space!';
 
 export const codingPhrases = [
   'I build iOS and Android applications.',

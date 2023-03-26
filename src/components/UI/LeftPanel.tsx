@@ -2,7 +2,6 @@ import {
   Box,
   Card,
   CardContent,
-  CardMedia,
   Divider,
   Grid,
   Typography,
@@ -47,29 +46,8 @@ export const LeftPanel = ({
 }: ILeftPanel) => {
   return (
     <Card>
-      <Box
-        sx={{
-          padding: '1rem',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          width: '100%',
-          height: '100%',
-        }}
-      >
-        <CardMedia
-          sx={{
-            borderRadius: '50%',
-            height: 160,
-            width: 160,
-          }}
-          component="img"
-          alt="ruben dominguez"
-          image={image}
-        />
-      </Box>
       <Box sx={{ width: '100%', textAlign: 'center' }}>
-        <Typography variant="h6">{name}</Typography>
+        <Typography variant="h3">{name}</Typography>
         <Typography>{position}</Typography>
       </Box>
       <CardContent>

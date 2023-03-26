@@ -20,9 +20,11 @@ export const Hero = ({
     <StyledGridCentered
       container
       sx={{
-        background: `url(${background}) fixed`,
+        backgroundImage: `url(${background})`,
+        backgroundPositionY: 'center',
+        backgroundPositionX: 'center',
+        backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
-        overflow: 'hidden',
       }}
     >
       <Grid
@@ -30,7 +32,6 @@ export const Hero = ({
         xs={12}
         md={8}
         sx={{
-          backgroundColor: 'rgba(0,0,0,0.4)',
           padding: '2rem 1rem',
         }}
       >
@@ -42,6 +43,8 @@ export const Hero = ({
                 fontSize: '3rem',
                 textTransform: 'capitalize',
                 fontWeight: '800',
+                color: 'rgba(255, 255, 255, 0.8);',
+                textShadow: '5px 5px 0.5px rgba(0,0,0,.7)',
               }}
             >
               {mainPhrase}
@@ -59,7 +62,6 @@ export const Hero = ({
         xs={12}
         md={4}
         sx={{
-          backgroundColor: 'rgba(0,0,0,0.4)',
           padding: '2rem',
         }}
       >
