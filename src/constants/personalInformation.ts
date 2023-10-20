@@ -12,7 +12,7 @@ export const personalInformationData: TPersonalInformation[] = [
   },
   { key: 'Country', description: 'USA' },
   { key: 'State', description: 'Florida' },
-  { key: 'City', description: 'Orlando' },
+  { key: 'City', description: 'Clermont' },
   {
     key: 'Age',
     description: moment().diff(moment(19810820, 'YYYYMMDD'), 'years'),

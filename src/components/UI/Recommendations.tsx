@@ -29,7 +29,7 @@ export type TRecommendation = {
   title: string;
   comment: string;
   review: number;
-  imageSrc: TImage;
+  imageSrc?: TImage;
 };
 
 export interface IRecommendations {
@@ -111,7 +111,7 @@ export interface IRecommendation {
 }
 
 export const Recommendation = ({ recommendation, dialog }: IRecommendation) => {
-  const MAX_CHARACTERS = 60;
+  const MAX_CHARACTERS = 100;
   const [open, setOpen] = useState(false);
   const color = useContext(ColorContext);
 
@@ -136,18 +136,21 @@ export const Recommendation = ({ recommendation, dialog }: IRecommendation) => {
           padding: '1rem 1rem 0rem 1rem',
         }}
       >
-        <CardMedia
-          component="img"
-          src={`${recommendation.imageSrc}`}
-          alt={`${recommendation.name}`}
-          sx={{
-            marginLeft: 'auto',
-            borderRadius: '50%',
-            width: 120,
-            height: 120,
-            zIndex: 10,
-          }}
-        />
+        {recommendation.imageSrc && (
+          <CardMedia
+            component="img"
+            src={`${recommendation.imageSrc}`}
+            alt={`${recommendation.name}`}
+            sx={{
+              marginLeft: 'auto',
+              borderRadius: '50%',
+              width: 120,
+              height: 120,
+              zIndex: 10,
+            }}
+          />
+        )}
+
         <CardContent sx={{ position: 'relative' }}>
           <Box>
             <Box>
