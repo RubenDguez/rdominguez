@@ -7,7 +7,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 
 export const mediaLinks: TMediaLink[] = [
   {
-    link: 'https://www.linkedin.com/in/ruben-dominguez-ba386621a',
+    link: 'https://www.linkedin.com/in/argenis-dominguez/',
     icon: <LinkedInIcon />,
   },
   { link: 'https://github.com/RubenDguez', icon: <GitHubIcon /> },
@@ -20,7 +20,7 @@ export const mediaLinks: TMediaLink[] = [
     icon: <InstagramIcon />,
   },
   {
-    link: 'https://twitter.com/Argenis_dgz',
+    link: 'https://twitter.com/ArgenisDoming18/',
     icon: <TwitterIcon />,
   },
 ];
