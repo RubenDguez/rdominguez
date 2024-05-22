@@ -4,6 +4,7 @@ import { Achievements, TAchievement } from './Achievements';
 import { Hero } from './Hero';
 import { Recommendations, TRecommendation } from './Recommendations';
 import { Services, TService } from './Services';
+import { BlogLinks } from './BlogLinks';
 
 export interface IRightPanel {
   image: TImage;
@@ -42,6 +43,9 @@ export const RightPanel = ({
       </Grid>
       <Grid item xs={12}>
         <Recommendations recommendations={recommendations} />
+      </Grid>
+      <Grid item xs={12}>
+        <BlogLinks />
       </Grid>
     </Grid>
   );
