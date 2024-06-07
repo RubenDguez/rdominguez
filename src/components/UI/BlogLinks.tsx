@@ -21,9 +21,14 @@ export interface IBlogs {
 
 const myBlogs: IBlog[] = [
   {
+    title: `Getting Started with HTML: A Beginner's Guide`,
+    published: 'Jun 7 2024',
+    url: 'https://rubendguez.github.io/lets-code/pages/intro-to-html-basics.html',
+  },
+  {
     title: `Getting Started with Git: A Beginner's Guide to Version Control`,
     published: 'Jun 6 2024',
-    url: 'https://rubendguez.github.io/lets-code//pages/git-for-beginners.html',
+    url: 'https://rubendguez.github.io/lets-code/pages/git-for-beginners.html',
   },
   {
     title: 'Is JavaScript a good choice for beginner developers?',
