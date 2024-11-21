@@ -52,16 +52,4 @@ export const recommendations: TRecommendation[] = [
     `,
     review: 5,
   },
-  {
-    name: 'Kenneth Hilgendorf',
-    title: 'IT Senior Manger, NextEra Energy Solutions',
-    comment: `
-    Ken would like to give a huge shout out to @Dominguez, Argenis for his recent updates on the NEER Salesforce regression suite
-    and DevOps solution. He took the initiative to redesign the architecture of our parallel execution, allowing us to take advantage
-    of the new limitations from the Salesforce release this year. This resulted in a massive optimization benefit for the teams
-    who run these 4+ times every week. CRM Full regression of 700+ tests cases went from taking ~2.5hours to ~1hour (60% reduction and improvement).
-    LAND full regression of 550+ test cases went from ~1h45m to 35m (65% reduction and improvement).
-    `,
-    review: 5,
-  },
 ];
