@@ -27,6 +27,7 @@ const recommendationsColumns = (recommendationQuantity: number): number => {
 export type TRecommendation = {
   name: string;
   title: string;
+  company: string;
   comment: string;
   review: number;
   imageSrc?: TImage;
@@ -69,7 +70,7 @@ export const Recommendations = ({ recommendations }: IRecommendations) => {
           <Box sx={{ marginBottom: '2rem' }}>
             <SXBox>
               <Typography variant="h5" sx={{ fontWeight: 600 }}>
-                Recommendations
+                Recommendations And Achievements
               </Typography>
             </SXBox>
           </Box>
@@ -155,7 +156,10 @@ export const Recommendation = ({ recommendation, dialog }: IRecommendation) => {
           <Box>
             <Box>
               <Typography variant="h5">{recommendation.name}</Typography>
-              <Typography sx={{ fontSize: '0.8rem', color: 'lightgray' }}>
+              <Typography sx={{ color: 'lightgray' }}>
+                {recommendation.company}
+              </Typography>
+              <Typography sx={{ color: 'lightgray' }}>
                 <i>{recommendation.title}</i>
               </Typography>
               <Divider sx={{ marginTop: '0.5rem' }} />
