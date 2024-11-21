@@ -1,11 +1,8 @@
 # Ruben Dominguez's Portfolio
 
-![React](https://img.shields.io/badge/React-17.0.2-blue)
-![Material-UI](https://img.shields.io/badge/Material--UI-4.11.3-blue)
-![Node.js](https://img.shields.io/badge/Node.js-14.17.0-green)
-![Express](https://img.shields.io/badge/Express-4.17.1-lightgrey)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-13.3-blue)
-![GitHub](https://img.shields.io/badge/GitHub-3.0-orange)
+![React](https://img.shields.io/badge/React-18.1.0-blue)
+![Material-UI](https://img.shields.io/badge/Material--UI-11-blue)
+![Node.js](https://img.shields.io/badge/Node.js-16-green)
 ![CI/CD](https://img.shields.io/badge/CI--CD-automated-yellow)
 
 ## About This Project
